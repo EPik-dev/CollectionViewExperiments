@@ -23,6 +23,8 @@
 		781D3D67213B17D600E3E4A5 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 781D3D66213B17D600E3E4A5 /* users.json */; };
 		7847DA6A213BB93A000287A9 /* LinearListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7847DA69213BB93A000287A9 /* LinearListViewModel.swift */; };
 		7847DA6C213BBC80000287A9 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7847DA6B213BBC80000287A9 /* Box.swift */; };
+		7847DA6F213C1227000287A9 /* ControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7847DA6E213C1227000287A9 /* ControlPanelView.swift */; };
+		7847DA72213C13DE000287A9 /* ControlPanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7847DA71213C13DE000287A9 /* ControlPanelViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		781D3D66213B17D600E3E4A5 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		7847DA69213BB93A000287A9 /* LinearListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearListViewModel.swift; sourceTree = "<group>"; };
 		7847DA6B213BBC80000287A9 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		7847DA6E213C1227000287A9 /* ControlPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelView.swift; sourceTree = "<group>"; };
+		7847DA71213C13DE000287A9 /* ControlPanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				7847DA6D213BD29F000287A9 /* SimpleCell */,
+				7847DA70213C1235000287A9 /* ControlPanel */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +172,15 @@
 				781D3D55213AFE7700E3E4A5 /* SimpleCellViewModel.swift */,
 			);
 			path = SimpleCell;
+			sourceTree = "<group>";
+		};
+		7847DA70213C1235000287A9 /* ControlPanel */ = {
+			isa = PBXGroup;
+			children = (
+				7847DA6E213C1227000287A9 /* ControlPanelView.swift */,
+				7847DA71213C13DE000287A9 /* ControlPanelViewModel.swift */,
+			);
+			path = ControlPanel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +262,9 @@
 				7847DA6A213BB93A000287A9 /* LinearListViewModel.swift in Sources */,
 				781D3D3D213AFC6B00E3E4A5 /* AppDelegate.swift in Sources */,
 				781D3D5E213B09DF00E3E4A5 /* MainScreenViewModel.swift in Sources */,
+				7847DA6F213C1227000287A9 /* ControlPanelView.swift in Sources */,
 				781D3D56213AFE7700E3E4A5 /* SimpleCellViewModel.swift in Sources */,
+				7847DA72213C13DE000287A9 /* ControlPanelViewModel.swift in Sources */,
 				781D3D5C213B00A000E3E4A5 /* CellViewModel.swift in Sources */,
 				7847DA6C213BBC80000287A9 /* Box.swift in Sources */,
 				781D3D65213B143900E3E4A5 /* User.swift in Sources */,

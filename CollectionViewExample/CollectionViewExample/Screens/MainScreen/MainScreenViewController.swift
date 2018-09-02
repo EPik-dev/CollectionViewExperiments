@@ -11,11 +11,13 @@ import UIKit
 class MainScreenViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView?
-    
+    @IBOutlet weak var controlPanelView: ControlPanelView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionFlow = viewModel.controlPanelModel.makeCollectionFlow()
+        collectionView?.collectionViewLayout = collectionFlow
         bindViewModel()
     }
     
@@ -32,12 +34,56 @@ class MainScreenViewController: UIViewController {
             }
             strongSelf.collectionView?.reloadData()
         }
+        viewModel.controlPanelModel.itemHeight.didChange = { [weak self] value in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.collectionFlow.itemSize = CGSize(width: strongSelf.viewModel.controlPanelModel.itemWidth.value,
+                                                        height: value)
+            strongSelf.collectionView?.collectionViewLayout = strongSelf.collectionFlow
+        }
+        viewModel.controlPanelModel.itemWidth.didChange = { [weak self] value in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.collectionFlow.itemSize = CGSize(width: value,
+                                                        height: strongSelf.viewModel.controlPanelModel.itemHeight.value)
+            strongSelf.collectionView?.collectionViewLayout = strongSelf.collectionFlow
+        }
+        viewModel.controlPanelModel.scrollDirection.didChange = { [weak self] value in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.collectionFlow.scrollDirection = value.collectionViewScrollDirection
+            strongSelf.collectionView?.collectionViewLayout = strongSelf.collectionFlow
+        }
+        controlPanelView?.viewModel = viewModel.controlPanelModel
     }
     
+    private var collectionFlow = UICollectionViewFlowLayout()
     private var viewModel = MainScreenViewModel()
     private let factory: CellsFactory = MainScreenCellsFactory()
 }
 
+extension ControlPanelViewModelOutput {
+    func makeCollectionFlow() -> UICollectionViewFlowLayout {
+        let flow = UICollectionViewFlowLayout()
+        flow.itemSize = CGSize(width: itemWidth.value, height: itemHeight.value)
+        flow.scrollDirection = scrollDirection.value.collectionViewScrollDirection
+        return flow
+    }
+}
+
+extension ControlPanelViewModel.ScrollDirection {
+    var collectionViewScrollDirection: UICollectionView.ScrollDirection {
+        switch self {
+        case .vertical:
+            return .vertical
+        case .horizontal:
+            return .horizontal
+        }
+    }
+}
 
 extension MainScreenViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

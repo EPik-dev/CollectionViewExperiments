@@ -9,6 +9,8 @@
 import Foundation
 
 class MainScreenViewModel {
+ 
+    let controlPanelModel: ControlPanelViewModelOutput = ControlPanelViewModel()
     
     var usersList: Box<ListViewModel> {
         return Box<ListViewModel>(mutableBox: usersListViewModel)

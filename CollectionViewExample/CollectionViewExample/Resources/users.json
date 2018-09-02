@@ -1,17 +1,32 @@
 [
     {
-        "firstName": "Alex",
-        "lastName": "Stanley",
+        "firstName": "Inoketiy",
+        "lastName": "Smoktunovskiy",
         "avatarName": "UserImage"
     },
     {
-        "firstName": "Alex",
-        "lastName": "Stanley",
+        "firstName": "Dmitry",
+        "lastName": "Donskoy",
         "avatarName": "UserImage"
     },
     {
-        "firstName": "Alex",
-        "lastName": "Stanley",
+        "firstName": "Klim",
+        "lastName": "Voroshiov",
+        "avatarName": "UserImage"
+    },
+    {
+        "firstName": "Alexander",
+        "lastName": "Nevskiy",
+        "avatarName": "UserImage"
+    },
+    {
+        "firstName": "Alexander",
+        "lastName": "Suvorov",
+        "avatarName": "UserImage"
+    },
+    {
+        "firstName": "Mikhail",
+        "lastName": "Kutuzov",
         "avatarName": "UserImage"
     }
 ]
