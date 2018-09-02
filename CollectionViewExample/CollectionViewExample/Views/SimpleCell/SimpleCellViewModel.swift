@@ -8,6 +8,11 @@
 
 import Foundation
 
-class SimpleCellViewModel: CellViewModel {
+struct SimpleCellViewModel: CellViewModel {
+    var reusableCellId: String {
+        return "SimpleCellID"
+    }
     
+    var userName: String
+    var avatarName: String
 }

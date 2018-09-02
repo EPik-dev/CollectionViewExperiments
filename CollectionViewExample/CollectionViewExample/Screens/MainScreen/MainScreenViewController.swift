@@ -45,19 +45,27 @@ extension MainScreenViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
-        return cell
+        guard let cellModel = viewModel.usersList.value.item(at: indexPath.item, forSection: indexPath.section) else {
+            fatalError("ViewModel does not match with collection")
+        }
+        return collectionView.dequeueReusableCell(withReuseIdentifier: cellModel.reusableCellId, for: indexPath)
     }
 }
 
 extension MainScreenViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+        guard let cellModel = viewModel.usersList.value.item(at: indexPath.item, forSection: indexPath.section) else {
+            fatalError("ViewModel does not match with collection")
+        }
+        guard let configurableCell = cell as? ConfigurableCell else {
+            return
+        }
+        configurableCell.viewModel = cellModel
     }
 }
 
 class MainScreenCellsFactory: CellsFactory {
-    func makeCell(forType type: CellType) -> UICollectionViewCell {
+    func makeCell(forType type: CellType) -> ConfigurableCell&AnyObject {
         switch type {
         case .simple:
             return SimpleCell()
@@ -67,7 +75,7 @@ class MainScreenCellsFactory: CellsFactory {
     func makeCellViewModel(forType type: CellType) -> CellViewModel {
         switch type {
         case .simple:
-            return SimpleCellViewModel()
+            return SimpleCellViewModel(userName: "", avatarName: "")
         }
     }
 }

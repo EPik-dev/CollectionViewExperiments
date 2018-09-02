@@ -10,4 +10,5 @@ import Foundation
 
 
 protocol CellViewModel {
+    var reusableCellId: String { get }
 }

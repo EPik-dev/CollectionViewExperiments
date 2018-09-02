@@ -13,6 +13,6 @@ enum CellType {
 }
 
 protocol CellsFactory {
-    func makeCell(forType type: CellType) -> UICollectionViewCell
+    func makeCell(forType type: CellType) -> ConfigurableCell&AnyObject
     func makeCellViewModel(forType type: CellType) -> CellViewModel
 }

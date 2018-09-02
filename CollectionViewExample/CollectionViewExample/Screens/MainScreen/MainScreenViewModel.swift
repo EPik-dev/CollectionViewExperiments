@@ -26,16 +26,16 @@ class MainScreenViewModel {
             case .failed(let error):
                 print("An error occured \(error)")
             }
-            
         }
     }
     
     private func mapUser(_ user: User) -> SimpleCellViewModel {
-        return SimpleCellViewModel()
+        let userName = "\(user.firstName) \(user.lastName)"
+        return SimpleCellViewModel(userName: userName, avatarName: user.avatarName)
     }
     
-    private var usersListViewModel: MutableBox<ListViewModel> = MutableBox<ListViewModel>(value: LinearListViewModel<User, SimpleCellViewModel>())
-    private let usersService: UsersService = UsersService()
+    private var usersListViewModel = MutableBox<ListViewModel>(value: LinearListViewModel<User, SimpleCellViewModel>())
+    private let usersService = UsersService()
 }
 
 
