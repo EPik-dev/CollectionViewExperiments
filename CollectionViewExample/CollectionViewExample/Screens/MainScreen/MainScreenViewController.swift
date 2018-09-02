@@ -10,9 +10,13 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,24 +25,35 @@ class MainScreenViewController: UIViewController {
         viewModel.loadUsers()
     }
     
+    private func bindViewModel() {
+        viewModel.usersList.didChange = { [weak self] value in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.collectionView?.reloadData()
+        }
+    }
+    
     private var viewModel = MainScreenViewModel()
     private let factory: CellsFactory = MainScreenCellsFactory()
 }
 
 
-//extension MainScreenViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 0
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        collectionView.dequeueReusableCell(withReuseIdentifier: <#T##String#>, for: <#T##IndexPath#>)
-//    }
-//}
+extension MainScreenViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.usersList.value.itemsCount(forSection: section)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
+        return cell
+    }
+}
 
 extension MainScreenViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+    }
 }
 
 class MainScreenCellsFactory: CellsFactory {
@@ -55,6 +70,4 @@ class MainScreenCellsFactory: CellsFactory {
             return SimpleCellViewModel()
         }
     }
-    
-    
 }

@@ -21,6 +21,8 @@
 		781D3D63213B13A800E3E4A5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781D3D62213B13A800E3E4A5 /* Result.swift */; };
 		781D3D65213B143900E3E4A5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781D3D64213B143900E3E4A5 /* User.swift */; };
 		781D3D67213B17D600E3E4A5 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 781D3D66213B17D600E3E4A5 /* users.json */; };
+		7847DA6A213BB93A000287A9 /* LinearListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7847DA69213BB93A000287A9 /* LinearListViewModel.swift */; };
+		7847DA6C213BBC80000287A9 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7847DA6B213BBC80000287A9 /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		781D3D62213B13A800E3E4A5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		781D3D64213B143900E3E4A5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		781D3D66213B17D600E3E4A5 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		7847DA69213BB93A000287A9 /* LinearListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearListViewModel.swift; sourceTree = "<group>"; };
+		7847DA6B213BBC80000287A9 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,13 +76,13 @@
 		781D3D3B213AFC6B00E3E4A5 /* CollectionViewExample */ = {
 			isa = PBXGroup;
 			children = (
-				781D3D5F213B11A800E3E4A5 /* Services */,
-				781D3D58213AFF2B00E3E4A5 /* Model */,
-				781D3D57213AFEFA00E3E4A5 /* ViewModels */,
-				781D3D52213AFE2D00E3E4A5 /* Views */,
 				781D3D3C213AFC6B00E3E4A5 /* AppDelegate.swift */,
+				781D3D58213AFF2B00E3E4A5 /* Model */,
 				781D3D50213AFD0D00E3E4A5 /* Resources */,
 				781D3D4E213AFCB800E3E4A5 /* Screens */,
+				781D3D5F213B11A800E3E4A5 /* Services */,
+				781D3D57213AFEFA00E3E4A5 /* ViewModels */,
+				781D3D52213AFE2D00E3E4A5 /* Views */,
 				781D3D48213AFC6E00E3E4A5 /* Info.plist */,
 			);
 			path = CollectionViewExample;
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				781D3D5B213B00A000E3E4A5 /* CellViewModel.swift */,
+				7847DA69213BB93A000287A9 /* LinearListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				781D3D59213B001200E3E4A5 /* CellsFactories.swift */,
 				781D3D62213B13A800E3E4A5 /* Result.swift */,
 				781D3D64213B143900E3E4A5 /* User.swift */,
+				7847DA6B213BBC80000287A9 /* Box.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,10 +237,12 @@
 				781D3D61213B11B900E3E4A5 /* UsersService.swift in Sources */,
 				781D3D5A213B001200E3E4A5 /* CellsFactories.swift in Sources */,
 				781D3D3F213AFC6B00E3E4A5 /* MainScreenViewController.swift in Sources */,
+				7847DA6A213BB93A000287A9 /* LinearListViewModel.swift in Sources */,
 				781D3D3D213AFC6B00E3E4A5 /* AppDelegate.swift in Sources */,
 				781D3D5E213B09DF00E3E4A5 /* MainScreenViewModel.swift in Sources */,
 				781D3D56213AFE7700E3E4A5 /* SimpleCellViewModel.swift in Sources */,
 				781D3D5C213B00A000E3E4A5 /* CellViewModel.swift in Sources */,
+				7847DA6C213BBC80000287A9 /* Box.swift in Sources */,
 				781D3D65213B143900E3E4A5 /* User.swift in Sources */,
 				781D3D54213AFE4700E3E4A5 /* SimpleCell.swift in Sources */,
 			);
